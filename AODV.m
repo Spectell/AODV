@@ -8,7 +8,6 @@ R = 2;          % Submit range node
 %%%
 
 A = zeros(L+R+R);  %%% node's position__(1)
-
 Node_line = randi([1,L],[1,NoN])+R;  %%% make node's position
 Node_row  = randi([1,L],[1,NoN])+R;
 
@@ -18,18 +17,16 @@ for i = 1:NoN
     S_Node(i).row  = Node_row(i); 
     S_Node(i).RREQ = [];                          %%% memory of RREQ
     S_Node(i).range = [R];                        %%% Submit range node
-    %%%     
-
+    %%%%%%%%%%%%%%%%%%     
     A(Node_line(i),Node_row(i)) = i;   %%% write node's position__(2)
 end
 
 spy(A);    %%% display node's position__(3)
 flag = 0;  % using test
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% rewrite by using find ?
 k = 1;     % start at node-1
+%%%%%%%%%%%%%%%%%%%%% may rewrite by using (find)
 
 for roop = 1:6  % Here is test. if here is complete--->> while(1)
-   
 for i = 1 : S_Node(k(1)).range
         %%% send RREQ
         %%% access S_Node.RREQ by using (A:node's position__(4))
