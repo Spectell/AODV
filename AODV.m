@@ -29,13 +29,14 @@ flag = 0;  % はじめ　node1 からnode20 へ
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  あとで　findで書き直せるか試す
 k = 1;
 
-for roop = 1:6
+for roop = 1:6  %　取りあえず、６回してるだけ
    
 for i = 1 : S_Node(k(1)).range
     %%% Aを使って参照し,S_Nodeにアクセスすることで実現する
     for j = i : S_Node(k(1)).range
         
       if A( S_Node(k(1)).line +i , S_Node(k(1)).row +j ) > 0 
+      %%% ４つとも、ここに条件を追加する必要あり
      S_Node(A( S_Node(k(1)).line +i , S_Node(k(1)).row +j )).RREQ = ...
          [S_Node(A( S_Node(k(1)).line +i , S_Node(k(1)).row +j )).RREQ k(1)];
      k = [k A( S_Node(k(1)).line +i , S_Node(k(1)).row +j )];
