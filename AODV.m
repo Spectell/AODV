@@ -1,4 +1,4 @@
-%%% Sorry. This program-code is unfinished.
+%%% This program-code is unfinished.
 clear
 
 %%% Rewritable
