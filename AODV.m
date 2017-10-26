@@ -4,12 +4,12 @@ clear
 %%% Rewritable
 L = 10;         % length
 NoN = 20;       %　No. of node 
-R = 2; % Submit range node
+R = 2;          % Submit range node
 %%%
 
 A = zeros(L+R+R);  %%% node's position__(1)
 
-Node_line = randi([1,L],[1,NoN])+R; %%% make node's position
+Node_line = randi([1,L],[1,NoN])+R;  %%% make node's position
 Node_row  = randi([1,L],[1,NoN])+R;
 
 for i = 1:NoN
