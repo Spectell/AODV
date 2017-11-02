@@ -1,6 +1,6 @@
 %%% This program-code may be unfinished.
 clear
-AODV = [];
+
 %%% Rewritable
 E= 100;         % Range of enviroment
 NoN = 200;      % Number of node 
@@ -42,6 +42,7 @@ while(1)
            end
         end
     end
+    
      k(1)=[];
    
      if S_Node(NoN).RREQ > 0
