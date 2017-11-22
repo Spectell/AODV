@@ -1,11 +1,11 @@
-function [S_Node] = sent_RREP(S_Node,NoN,j)
+function S_Node = sent_RREP(S_Node,NoN)
 
-
+j = NoN;
 
 %%% If Destination-node have RREQ,
    if S_Node(NoN).RREQ > 0        
     
-      %%% RREQ of destination-node shift RREP of destination-node.        
+      %%% RREQ of destination-node shift RREP of destination-node.
         S_Node(NoN).RREP = fliplr(S_Node(NoN).RREQ);
 
       while(1)

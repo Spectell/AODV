@@ -1,4 +1,4 @@
-function [S_Node] = status_and_disp(E,R,NoN)
+function [S_Node] = status_and_disp(E,R,NoN,attack_NoN)
 
 %%% Disp status
 fprintf('------------------------------\n');
@@ -14,19 +14,26 @@ Node_row  = randi([1,E],[1,NoN])+R;
 for i = 1:NoN 
     %%% make status of node 
     S_Node(i).number = i;                         %%% number of node
-    S_Node(i).line = Node_line(i);                %%% position of node
+    S_Node(i).line = Node_line(i);                %%% node's position
     S_Node(i).row  = Node_row(i); 
     S_Node(i).RREQ = [];                          %%% memory of RREQ
     S_Node(i).RREP = [];                          %%% memory of RREP
                                                   %%% Need to change range?
-
     S_Node(i).range = [R];                        %%% Submit range node
+    S_Node(i).attack = 0;
     %%%%%%%%%%%%%%%%%%     
     hold on
     plot(S_Node(i).range*cos(b)+Node_line(i),S_Node(i).range*sin(b)+Node_row(i));
+    scatter(Node_line(i), Node_row(i),25,'filled');
+
+    %%% 不正ノードを作ります
+    if 1 < i && i < attack_NoN + 2
+    S_Node(i).attack = 1;       
+    end     
+    
 end
 
-hold off
+    hold off
 %%% 使ってない　＞＞ M(i) = getframe; %% ループ文に囲まれている間のグラフをmovieとして保存する
 text(S_Node(1).line,S_Node(1).row,'first'); 
 text(S_Node(NoN).line,S_Node(NoN).row,'last');  
